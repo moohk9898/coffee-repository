@@ -20,23 +20,106 @@ document.querySelectorAll('.category-tab').forEach(tab => {
     });
 });
 
-// 장바구니 담기 기능
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', (e) => {
-        const menuItem = e.target.closest('.menu-item');
-        const itemName = menuItem.querySelector('h3').textContent;
-        const itemPrice = menuItem.querySelector('.price').textContent;
+// 모달 관련 요소
+const modal = document.getElementById('optionModal');
+const modalTitle = modal.querySelector('.selected-item-name');
+const tempOptions = modal.querySelectorAll('.temp-option');
+const quantityBtns = modal.querySelectorAll('.quantity-btn');
+const quantitySpan = modal.querySelector('.quantity');
+const priceValue = modal.querySelector('.price-value');
+const closeBtn = modal.querySelector('.close-modal');
+const cancelBtn = modal.querySelector('.cancel-btn');
+const addToCartBtn = modal.querySelector('.add-to-cart-btn');
+
+let currentItem = null;
+let currentTemp = null;
+let currentQuantity = 1;
+
+// 옵션 선택 버튼 클릭
+document.querySelectorAll('.select-option').forEach(button => {
+    button.addEventListener('click', () => {
+        currentItem = {
+            name: button.dataset.item,
+            price: parseInt(button.dataset.price)
+        };
         
-        // 장바구니에 아이템 추가
-        addToCart({
-            name: itemName,
-            price: parseInt(itemPrice.replace(/[^0-9]/g, '')),
-            quantity: 1
-        });
+        // 모달 초기화
+        modalTitle.textContent = currentItem.name;
+        tempOptions.forEach(opt => opt.classList.remove('selected'));
+        currentTemp = null;
+        currentQuantity = 1;
+        quantitySpan.textContent = '1';
+        updateTotalPrice();
         
-        // 알림 표시
-        alert(`${itemName}이(가) 장바구니에 추가되었습니다.`);
+        // 모달 표시
+        modal.classList.add('show');
     });
+});
+
+// 온도 옵션 선택
+tempOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        tempOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        currentTemp = option.dataset.temp;
+    });
+});
+
+// 수량 조절
+quantityBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (btn.classList.contains('minus') && currentQuantity > 1) {
+            currentQuantity--;
+        } else if (btn.classList.contains('plus') && currentQuantity < 10) {
+            currentQuantity++;
+        }
+        quantitySpan.textContent = currentQuantity;
+        updateTotalPrice();
+    });
+});
+
+// 총 금액 업데이트
+function updateTotalPrice() {
+    if (currentItem) {
+        const total = currentItem.price * currentQuantity;
+        priceValue.textContent = total.toLocaleString() + '원';
+    }
+}
+
+// 모달 닫기
+function closeModal() {
+    modal.classList.remove('show');
+    currentItem = null;
+    currentTemp = null;
+    currentQuantity = 1;
+}
+
+closeBtn.addEventListener('click', closeModal);
+cancelBtn.addEventListener('click', closeModal);
+
+// 장바구니에 담기
+addToCartBtn.addEventListener('click', () => {
+    if (!currentTemp) {
+        alert('온도를 선택해주세요.');
+        return;
+    }
+    
+    const cartItem = {
+        name: currentItem.name,
+        temperature: currentTemp,
+        quantity: currentQuantity,
+        price: currentItem.price,
+        totalPrice: currentItem.price * currentQuantity
+    };
+    
+    // 장바구니에 추가
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cart.push(cartItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // 성공 메시지 표시
+    alert('장바구니에 추가되었습니다.');
+    closeModal();
 });
 
 // 장바구니 관리 함수

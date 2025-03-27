@@ -216,4 +216,212 @@
     .add-to-cart {
         font-size: 14px;
     }
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    color: #4A3223;
+    margin: 0;
+    font-size: 20px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.selected-item-name {
+    color: #4A3223;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+}
+
+.option-group {
+    margin-bottom: 20px;
+}
+
+.option-label {
+    display: block;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.temperature-options {
+    display: flex;
+    gap: 10px;
+}
+
+.temp-option {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: none;
+    color: #666;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.temp-option.selected {
+    border-color: #4A3223;
+    color: #4A3223;
+    background-color: rgba(74, 50, 35, 0.1);
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.quantity-btn {
+    background: none;
+    border: none;
+    color: #4A3223;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.quantity {
+    font-size: 18px;
+    color: #4A3223;
+    min-width: 30px;
+    text-align: center;
+}
+
+.total-price {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    color: #4A3223;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.cancel-btn, .add-to-cart-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn {
+    background: none;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.add-to-cart-btn {
+    background-color: #4A3223;
+    border: none;
+    color: white;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #3A2213;
+}
+
+/* iOS 최적화 */
+.temp-option, .quantity-btn, .cancel-btn, .add-to-cart-btn {
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        padding: 15px;
+    }
+    
+    .modal-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal-title {
+        font-size: 18px;
+    }
+    
+    .selected-item-name {
+        font-size: 16px;
+    }
+    
+    .temp-option {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .quantity {
+        font-size: 16px;
+    }
+    
+    .total-price {
+        font-size: 16px;
+    }
+    
+    .cancel-btn, .add-to-cart-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
 } 
