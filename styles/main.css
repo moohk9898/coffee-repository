@@ -241,3 +241,51 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        align-items: center;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    .login-container {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .login-btn {
+        width: 100%;
+        max-width: none;
+        padding: 0.5rem 0;
+        border-radius: 0;
+        background: none;
+        color: #4a3428;
+    }
+
+    .login-form {
+        width: 90%;
+        right: 5%;
+        left: 5%;
+    }
+}
