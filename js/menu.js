@@ -78,8 +78,16 @@ document.querySelectorAll('.select-option').forEach(button => {
     });
 });
 
-// 터치 이벤트 처리 개선
+// 온도 옵션 선택 (PC와 모바일 모두 지원)
 tempOptions.forEach(option => {
+    // 클릭 이벤트 (PC)
+    option.addEventListener('click', () => {
+        tempOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        currentTemp = option.dataset.temp;
+    });
+
+    // 터치 이벤트 (모바일)
     option.addEventListener('touchstart', () => {
         option.style.opacity = '0.7';
     });
@@ -92,7 +100,20 @@ tempOptions.forEach(option => {
     });
 });
 
+// 수량 조절 (PC와 모바일 모두 지원)
 quantityBtns.forEach(btn => {
+    // 클릭 이벤트 (PC)
+    btn.addEventListener('click', () => {
+        if (btn.classList.contains('minus') && currentQuantity > 1) {
+            currentQuantity--;
+        } else if (btn.classList.contains('plus') && currentQuantity < 10) {
+            currentQuantity++;
+        }
+        quantitySpan.textContent = currentQuantity;
+        updateTotalPrice();
+    });
+
+    // 터치 이벤트 (모바일)
     let touchTimeout;
     
     btn.addEventListener('touchstart', () => {
@@ -120,6 +141,20 @@ quantityBtns.forEach(btn => {
         clearInterval(touchTimeout);
     });
 });
+
+// 마우스 호버 효과 (PC)
+const addHoverEffect = (element) => {
+    element.addEventListener('mouseenter', () => {
+        element.style.opacity = '0.8';
+    });
+    
+    element.addEventListener('mouseleave', () => {
+        element.style.opacity = '1';
+    });
+};
+
+tempOptions.forEach(addHoverEffect);
+quantityBtns.forEach(addHoverEffect);
 
 // 총 금액 업데이트
 function updateTotalPrice() {

@@ -224,11 +224,14 @@ header {
 }
 
 .nav-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
     color: #666;
+    padding: 10px;
+    flex: 1;
     font-size: 12px;
 }
 
@@ -239,6 +242,35 @@ header {
 
 .nav-item.active {
     color: #4A3223;
+}
+
+/* 장바구니 아이콘 스타일 */
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #E31836;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 12px;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* iOS 최적화 */
+@supports (-webkit-touch-callout: none) {
+    .cart-badge {
+        padding-top: 3px;
+    }
 }
 
 /* 반응형 디자인 */
