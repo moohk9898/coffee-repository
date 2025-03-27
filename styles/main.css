@@ -5,150 +5,328 @@
 }
 
 body {
-    font-family: 'Noto Sans KR', Arial, sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
-    color: #333;
 }
 
-/* 네비게이션 바 스타일 */
-.navbar {
-    background-color: #fff;
-    padding: 1rem;
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.logo h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #4A3428;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4A3223;
 }
 
-.logo span {
-    color: #8B5E3C;
-}
-
-.nav-icons {
+.top-nav {
     display: flex;
-    gap: 1.5rem;
-    align-items: center;
+    gap: 15px;
 }
 
 .nav-icon {
-    color: #4A3428;
+    color: #4A3223;
     text-decoration: none;
 }
 
-.material-icons {
-    font-size: 24px;
-}
-
-/* 메인 컨텐츠 스타일 */
-main {
-    padding-top: 70px;
-    padding-bottom: 80px;
+.menu-toggle {
+    background: none;
+    border: none;
+    color: #4A3223;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .welcome-section {
-    padding: 2rem 1.5rem;
     text-align: center;
+    padding: 40px 20px;
+    margin: 20px;
     background-color: #fff;
-    margin: 1rem;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.welcome-section h2 {
-    font-size: 1.8rem;
-    color: #4A3428;
-    margin-bottom: 1rem;
-    font-weight: 700;
+.welcome-section h1 {
+    color: #4A3223;
+    margin-bottom: 15px;
+    font-size: 24px;
 }
 
 .welcome-section p {
     color: #666;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .menu-link {
     display: inline-block;
-    background-color: #4A3428;
-    color: #fff;
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
+    padding: 12px 30px;
+    background-color: #4A3223;
+    color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+    border-radius: 25px;
+    transition: background-color 0.3s;
 }
 
 .menu-link:hover {
-    background-color: #8B5E3C;
+    background-color: #3A2213;
 }
 
-/* 하단 네비게이션 바 */
+/* 추천 메뉴 섹션 */
+.featured-menu {
+    padding: 40px 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.featured-menu h2 {
+    color: #4A3223;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    color: #4A3223;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.menu-item p {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.menu-item .price {
+    display: block;
+    color: #4A3223;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* 매장 소개 섹션 */
+.store-info {
+    padding: 40px 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.info-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.info-text {
+    flex: 1;
+}
+
+.info-text h2 {
+    color: #4A3223;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.info-text p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.store-features {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.store-features li {
+    color: #4A3223;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.store-features i {
+    margin-right: 10px;
+    color: #8B5E3C;
+}
+
+.info-image {
+    flex: 1;
+}
+
+.info-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .bottom-nav {
     position: fixed;
     bottom: 0;
-    width: 100%;
-    background-color: #fff;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-around;
-    padding: 0.8rem 0;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
-.bottom-nav-item {
-    color: #666;
-    text-decoration: none;
+.nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 0.75rem;
-}
-
-.bottom-nav-item .material-icons {
-    font-size: 24px;
-    margin-bottom: 4px;
-    color: #4A3428;
-}
-
-.bottom-nav-item span:not(.material-icons) {
+    text-decoration: none;
     color: #666;
+    font-size: 12px;
 }
 
-/* 반응형 스타일 */
-@media screen and (max-width: 768px) {
-    .navbar {
-        padding: 0.8rem;
-    }
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
 
-    .logo h1 {
-        font-size: 1.3rem;
-    }
+.nav-item.active {
+    color: #4A3223;
+}
 
-    .nav-icons {
-        gap: 1rem;
-    }
-
-    .material-icons {
-        font-size: 22px;
-    }
-
+/* 반응형 디자인 */
+@media (max-width: 768px) {
     .welcome-section {
-        margin: 0.5rem;
-        padding: 1.5rem 1rem;
+        margin: 10px;
+        padding: 30px 15px;
     }
 
-    .welcome-section h2 {
-        font-size: 1.5rem;
+    .welcome-section h1 {
+        font-size: 20px;
+    }
+
+    .featured-menu,
+    .store-info {
+        margin: 10px;
+        padding: 20px 15px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .menu-item {
+        padding: 15px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .menu-item img {
+        height: 180px;
+    }
+
+    .menu-item h3 {
+        font-size: 16px;
+    }
+
+    .menu-item p {
+        font-size: 13px;
+    }
+
+    .info-content {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .info-text h2 {
+        font-size: 20px;
+    }
+
+    .info-text p {
+        font-size: 14px;
+    }
+
+    .store-features {
+        margin-top: 20px;
+    }
+
+    .store-features li {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .info-image {
+        margin-top: 20px;
+    }
+
+    .info-image img {
+        height: 200px;
+    }
+
+    /* 하단 네비게이션 여백 추가 */
+    body {
+        padding-bottom: 70px;
+    }
+
+    /* 모바일에서 스크롤이 자연스럽게 되도록 */
+    .bottom-nav {
+        z-index: 1000;
+    }
+}
+
+/* 매우 작은 화면 대응 */
+@media (max-width: 360px) {
+    .welcome-section h1 {
+        font-size: 18px;
+    }
+
+    .menu-item img {
+        height: 150px;
+    }
+
+    .info-image img {
+        height: 180px;
+    }
+
+    .store-features li {
+        font-size: 13px;
     }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MochaBlend - 로그인/회원가입</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h1>MochaBlend</h1>
+        <div class="auth-tabs">
+            <button class="tab-btn active" onclick="showTab('login')">로그인</button>
+            <button class="tab-btn" onclick="showTab('signup')">회원가입</button>
+        </div>
+        
+        <div id="login-form" class="auth-form active">
+            <input type="email" placeholder="이메일" required>
+            <input type="password" placeholder="비밀번호" required>
+            <button class="auth-btn">로그인</button>
+        </div>
+
+        <div id="signup-form" class="auth-form">
+            <input type="email" placeholder="이메일" required>
+            <input type="password" placeholder="비밀번호" required>
+            <input type="password" placeholder="비밀번호 확인" required>
+            <input type="text" placeholder="이름" required>
+            <input type="tel" placeholder="전화번호" required>
+            <button class="auth-btn">회원가입</button>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html> 

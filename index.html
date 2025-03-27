@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Shop</title>
     <link rel="stylesheet" href="./styles/main.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">
-                <h1>Mocha<span>Blend</span></h1>
+                <h1>Coffee Shop</h1>
             </div>
-            <div class="nav-icons">
-                <a href="#" class="nav-icon"><span class="material-icons">person</span></a>
-                <a href="#" class="nav-icon"><span class="material-icons">location_on</span></a>
-                <button class="menu-toggle"><span class="material-icons">menu</span></button>
+            <div class="nav-links">
+                <a href="/" class="nav-link">홈</a>
+                <a href="#menu" class="nav-link">메뉴</a>
+                <a href="#about" class="nav-link">소개</a>
+                <div class="login-container">
+                    <button id="loginButton" class="nav-link login-btn">로그인</button>
+                    <div id="loginForm" class="login-form hidden">
+                        <form id="navLoginForm">
+                            <div class="form-group">
+                                <input type="text" id="navUsername" name="username" placeholder="아이디" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="navPassword" name="password" placeholder="비밀번호" required>
+                            </div>
+                            <button type="submit">로그인</button>
+                            <div class="login-links">
+                                <a href="./signup/signup.html">회원가입</a>
+                                <a href="#" class="forgot-password">비밀번호 찾기</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="welcome-section">
+        <section class="hero">
             <h2>신선한 커피와 함께하는 특별한 순간</h2>
             <p>최고급 원두로 내린 커피와 함께 특별한 시간을 보내세요</p>
-            <a href="#" class="menu-link">메뉴 보기</a>
         </section>
     </main>
 
-    <nav class="bottom-nav">
-        <a href="#" class="bottom-nav-item">
-            <span class="material-icons">home</span>
-            <span>홈</span>
-        </a>
-        <a href="#" class="bottom-nav-item">
-            <span class="material-icons">local_cafe</span>
-            <span>메뉴</span>
-        </a>
-        <a href="#" class="bottom-nav-item">
-            <span class="material-icons">favorite</span>
-            <span>찜</span>
-        </a>
-        <a href="#" class="bottom-nav-item">
-            <span class="material-icons">shopping_bag</span>
-            <span>주문</span>
-        </a>
-        <a href="#" class="bottom-nav-item">
-            <span class="material-icons">person</span>
-            <span>내정보</span>
-        </a>
-    </nav>
+    <footer>
+        <p>&copy; 2025 Coffee Shop. All rights reserved.</p>
+    </footer>
 
     <script src="./scripts/main.js"></script>
 </body>

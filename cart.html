@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MochaBlend - 장바구니</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+    <header>
+        <div class="logo">MochaBlend</div>
+        <nav class="top-nav">
+            <a href="auth.html" class="nav-icon"><i class="fas fa-user"></i></a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <div class="cart-container">
+        <h1>장바구니</h1>
+        <div id="cart-items">
+            <!-- 장바구니 아이템들이 여기에 동적으로 추가됩니다 -->
+        </div>
+        
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>상품 금액</span>
+                <span id="subtotal">0원</span>
+            </div>
+            <div class="summary-row">
+                <span>배달비</span>
+                <span id="delivery-fee">3,000원</span>
+            </div>
+            <div class="summary-row total">
+                <span>총 결제금액</span>
+                <span id="total">3,000원</span>
+            </div>
+        </div>
+
+        <button class="checkout-btn">결제하기</button>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>홈</span>
+        </a>
+        <a href="menu.html" class="nav-item">
+            <i class="fas fa-coffee"></i>
+            <span>메뉴</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-heart"></i>
+            <span>찜</span>
+        </a>
+        <a href="cart.html" class="nav-item active">
+            <i class="fas fa-shopping-bag"></i>
+            <span>주문</span>
+        </a>
+        <a href="auth.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>내정보</span>
+        </a>
+    </nav>
+
+    <script src="https://kit.fontawesome.com/your-code.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html> 
