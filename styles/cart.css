@@ -15,44 +15,46 @@ body {
 
 header {
     background-color: #fff;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 header h1 {
     color: #4A3223;
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
 }
 
 .cart-content {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .cart-items {
     background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .empty-cart {
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 15px;
     color: #666;
 }
 
 .empty-cart i {
-    font-size: 48px;
+    font-size: 40px;
     color: #ddd;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .cart-item {
@@ -74,49 +76,51 @@ header h1 {
     font-size: 16px;
     color: #4A3223;
     margin-bottom: 5px;
+    font-weight: 500;
 }
 
 .item-details {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .item-temp {
     display: inline-block;
-    padding: 2px 8px;
+    padding: 3px 8px;
     background-color: #f0f0f0;
     border-radius: 12px;
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
 }
 
 .item-price {
-    font-weight: bold;
+    font-weight: 600;
     color: #4A3223;
+    font-size: 15px;
 }
 
 .item-quantity {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin: 0 20px;
+    gap: 10px;
+    margin: 0 15px;
 }
 
 .quantity-btn {
     background: none;
-    border: none;
+    border: 1px solid #ddd;
     color: #4A3223;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    padding: 8px;
+    padding: 0;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
 }
 
 .quantity-btn:hover {
@@ -124,10 +128,11 @@ header h1 {
 }
 
 .quantity-num {
-    font-size: 16px;
+    font-size: 15px;
     min-width: 20px;
     text-align: center;
     color: #4A3223;
+    font-weight: 500;
 }
 
 .delete-btn {
@@ -147,8 +152,8 @@ header h1 {
 
 .cart-summary {
     background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 15px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -156,19 +161,26 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     color: #4A3223;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#totalAmount {
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .order-button {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     background-color: #4A3223;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -181,7 +193,7 @@ header h1 {
     background-color: #fff;
     display: flex;
     justify-content: space-around;
-    padding: 10px;
+    padding: 8px 0;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     position: fixed;
     bottom: 0;
@@ -197,7 +209,7 @@ header h1 {
     align-items: center;
     text-decoration: none;
     color: #666;
-    padding: 10px;
+    padding: 5px;
     flex: 1;
     font-size: 12px;
 }
@@ -208,7 +220,7 @@ header h1 {
 
 .nav-item i {
     font-size: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .cart-icon-container {
@@ -218,15 +230,15 @@ header h1 {
 
 .cart-badge {
     position: absolute;
-    top: -8px;
+    top: -5px;
     right: -8px;
     background-color: #E31836;
     color: white;
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 12px;
-    min-width: 18px;
-    height: 18px;
+    font-size: 11px;
+    padding: 0 5px;
+    border-radius: 10px;
+    min-width: 16px;
+    height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,41 +246,13 @@ header h1 {
 
 .cart-count {
     color: #666;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
-}
-
-@media (max-width: 768px) {
-    .cart-content {
-        padding: 15px;
-    }
-
-    .cart-item {
-        padding: 12px;
-    }
-
-    .item-name {
-        font-size: 14px;
-    }
-
-    .item-temp {
-        font-size: 12px;
-    }
-
-    .quantity-btn {
-        padding: 6px;
-        width: 28px;
-        height: 28px;
-    }
 }
 
 /* iOS 최적화 */
 @supports (-webkit-touch-callout: none) {
-    .cart-badge {
-        padding-top: 3px;
-    }
-    
     .bottom-nav {
-        padding-bottom: env(safe-area-inset-bottom);
+        padding-bottom: calc(8px + env(safe-area-inset-bottom));
     }
 } 
