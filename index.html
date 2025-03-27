@@ -1,52 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>Coffee Shop</title>
-    <link rel="stylesheet" href="./styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MochaBlend - 당신의 특별한 커피</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>Coffee Shop</h1>
-            </div>
-            <div class="nav-links">
-                <a href="/" class="nav-link">홈</a>
-                <a href="#menu" class="nav-link">메뉴</a>
-                <a href="#about" class="nav-link">소개</a>
-                <div class="login-container">
-                    <button id="loginButton" class="nav-link login-btn">로그인</button>
-                    <div id="loginForm" class="login-form hidden">
-                        <form id="navLoginForm">
-                            <div class="form-group">
-                                <input type="text" id="navUsername" name="username" placeholder="아이디" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" id="navPassword" name="password" placeholder="비밀번호" required>
-                            </div>
-                            <button type="submit">로그인</button>
-                            <div class="login-links">
-                                <a href="./signup/signup.html">회원가입</a>
-                                <a href="#" class="forgot-password">비밀번호 찾기</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="logo">MochaBlend</div>
+        <nav class="top-nav">
+            <a href="auth.html" class="nav-icon"><i class="fas fa-user"></i></a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h2>신선한 커피와 함께하는 특별한 순간</h2>
-            <p>최고급 원두로 내린 커피와 함께 특별한 시간을 보내세요</p>
-        </section>
-    </main>
+    <section class="welcome-section">
+        <h1>신선한 커피와 함께하는 특별한 순간</h1>
+        <p>최고급 원두로 내린 커피와 함께 특별한 시간을 보내세요</p>
+        <a href="menu.html" class="menu-link">메뉴 보기</a>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Coffee Shop. All rights reserved.</p>
-    </footer>
+    <section class="featured-menu">
+        <h2>추천 메뉴</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="images/signature-latte.jpg" alt="시그니처 라떼">
+                <h3>시그니처 라떼</h3>
+                <p>부드러운 우유와 진한 에스프레소의 조화</p>
+                <span class="price">5,800원</span>
+            </div>
+            <div class="menu-item">
+                <img src="images/cold-brew.jpg" alt="콜드 브루">
+                <h3>콜드 브루</h3>
+                <p>12시간 저온 추출한 깊은 풍미</p>
+                <span class="price">4,800원</span>
+            </div>
+            <div class="menu-item">
+                <img src="images/mocha-frappuccino.jpg" alt="모카 프라푸치노">
+                <h3>모카 프라푸치노</h3>
+                <p>달콤한 초콜릿과 커피의 만남</p>
+                <span class="price">6,300원</span>
+            </div>
+        </div>
+    </section>
 
-    <script src="./scripts/main.js"></script>
+    <section class="store-info">
+        <div class="info-content">
+            <div class="info-text">
+                <h2>MochaBlend 스토리</h2>
+                <p>2023년부터 시작된 MochaBlend는 최고급 원두만을 사용하여 고객님께 최상의 커피를 제공하고 있습니다.</p>
+                <p>편안한 분위기에서 즐기는 특별한 커피, 지금 경험해보세요.</p>
+                <ul class="store-features">
+                    <li><i class="fas fa-coffee"></i> 프리미엄 원두 사용</li>
+                    <li><i class="fas fa-wifi"></i> 무료 와이파이</li>
+                    <li><i class="fas fa-parking"></i> 주차 가능</li>
+                    <li><i class="fas fa-clock"></i> 매일 07:00 - 22:00</li>
+                </ul>
+            </div>
+            <div class="info-image">
+                <img src="images/store-interior.jpg" alt="매장 전경">
+            </div>
+        </div>
+    </section>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>홈</span>
+        </a>
+        <a href="menu.html" class="nav-item">
+            <i class="fas fa-coffee"></i>
+            <span>메뉴</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-heart"></i>
+            <span>찜</span>
+        </a>
+        <a href="cart.html" class="nav-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>주문</span>
+        </a>
+        <a href="auth.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>내정보</span>
+        </a>
+    </nav>
 </body>
 </html>
