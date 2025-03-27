@@ -35,6 +35,28 @@ let currentItem = null;
 let currentTemp = null;
 let currentQuantity = 1;
 
+// 모달 표시 시 스크롤 방지
+function showModal() {
+    modal.classList.add('show');
+    document.body.classList.add('modal-open');
+    
+    // iOS에서 모달 외부 터치 시 닫기
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+}
+
+// 모달 닫기 시 스크롤 복구
+function closeModal() {
+    modal.classList.remove('show');
+    document.body.classList.remove('modal-open');
+    currentItem = null;
+    currentTemp = null;
+    currentQuantity = 1;
+}
+
 // 옵션 선택 버튼 클릭
 document.querySelectorAll('.select-option').forEach(button => {
     button.addEventListener('click', () => {
@@ -52,29 +74,50 @@ document.querySelectorAll('.select-option').forEach(button => {
         updateTotalPrice();
         
         // 모달 표시
-        modal.classList.add('show');
+        showModal();
     });
 });
 
-// 온도 옵션 선택
+// 터치 이벤트 처리 개선
 tempOptions.forEach(option => {
-    option.addEventListener('click', () => {
+    option.addEventListener('touchstart', () => {
+        option.style.opacity = '0.7';
+    });
+    
+    option.addEventListener('touchend', () => {
+        option.style.opacity = '1';
         tempOptions.forEach(opt => opt.classList.remove('selected'));
         option.classList.add('selected');
         currentTemp = option.dataset.temp;
     });
 });
 
-// 수량 조절
 quantityBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (btn.classList.contains('minus') && currentQuantity > 1) {
-            currentQuantity--;
-        } else if (btn.classList.contains('plus') && currentQuantity < 10) {
-            currentQuantity++;
+    let touchTimeout;
+    
+    btn.addEventListener('touchstart', () => {
+        btn.style.opacity = '0.7';
+        if (btn.classList.contains('plus') || btn.classList.contains('minus')) {
+            touchTimeout = setInterval(() => {
+                if (btn.classList.contains('minus') && currentQuantity > 1) {
+                    currentQuantity--;
+                } else if (btn.classList.contains('plus') && currentQuantity < 10) {
+                    currentQuantity++;
+                }
+                quantitySpan.textContent = currentQuantity;
+                updateTotalPrice();
+            }, 200);
         }
-        quantitySpan.textContent = currentQuantity;
-        updateTotalPrice();
+    });
+    
+    btn.addEventListener('touchend', () => {
+        btn.style.opacity = '1';
+        clearInterval(touchTimeout);
+    });
+    
+    btn.addEventListener('touchcancel', () => {
+        btn.style.opacity = '1';
+        clearInterval(touchTimeout);
     });
 });
 
@@ -84,14 +127,6 @@ function updateTotalPrice() {
         const total = currentItem.price * currentQuantity;
         priceValue.textContent = total.toLocaleString() + '원';
     }
-}
-
-// 모달 닫기
-function closeModal() {
-    modal.classList.remove('show');
-    currentItem = null;
-    currentTemp = null;
-    currentQuantity = 1;
 }
 
 closeBtn.addEventListener('click', closeModal);
