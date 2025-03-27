@@ -96,10 +96,7 @@ document.getElementById('orderButton').addEventListener('click', () => {
         alert('장바구니가 비어있습니다.');
         return;
     }
-    alert('주문이 완료되었습니다.');
-    localStorage.removeItem('cart');
-    displayCartItems();
-    updateCartIcon();
+    window.location.href = 'payment.html';
 });
 
 // 페이지 로드 시 실행
