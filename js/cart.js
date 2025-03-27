@@ -3,6 +3,10 @@ function displayCartItems() {
     const cartItems = document.getElementById('cartItems');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     
+    // 장바구니 수량 업데이트
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.querySelector('.cart-count').textContent = `(${totalItems})`;
+    
     if (cart.length === 0) {
         cartItems.innerHTML = `
             <div class="empty-cart">

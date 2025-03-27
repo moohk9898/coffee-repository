@@ -232,6 +232,12 @@ header h1 {
     justify-content: center;
 }
 
+.cart-count {
+    color: #666;
+    font-size: 18px;
+    font-weight: normal;
+}
+
 @media (max-width: 768px) {
     .cart-content {
         padding: 15px;
