@@ -2,95 +2,254 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MochaBlend - 당신의 특별한 커피</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MochaBlend</title>
+    <link rel="stylesheet" href="styles/index.css">
+    
+    <!-- PWA 관련 메타 태그 -->
+    <meta name="theme-color" content="#4A321F">
+    <meta name="description" content="당신의 하루를 특별하게 만드는 한 잔">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MochaBlend">
+    
+    <!-- PWA 매니페스트 링크 -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS 아이콘 -->
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/icons/icon-152x152.png">
+    
+    <!-- 스플래시 스크린 -->
+    <link rel="apple-touch-startup-image" href="images/icons/icon-512x512.png">
+    
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/png" href="images/icons/icon-72x72.png">
+    
+    <style>
+        #installPrompt {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4A321F;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+        
+        #installPrompt button {
+            background: white;
+            color: #4A321F;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
     <header>
-        <div class="logo">MochaBlend</div>
-        <nav class="top-nav">
-            <a href="auth.html" class="nav-icon"><i class="fas fa-user"></i></a>
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-        </nav>
+            <h1>MochaBlend</h1>
+            <div class="auth-buttons">
+                <a href="login.html" class="auth-link login">로그인</a>
+                <a href="register.html" class="auth-link signup">회원가입</a>
+            </div>
+            <p>당신의 하루를 특별하게 만드는 한 잔</p>
     </header>
 
-    <main class="main-content">
-        <section class="welcome-section">
-            <h1>신선한 커피와 함께하는 특별한 순간</h1>
+        <section class="hero">
+            <h2>신선한 커피와 함께하는 특별한 순간</h2>
             <p>최고급 원두로 내린 커피와 함께 특별한 시간을 보내세요</p>
-            <a href="menu.html" class="menu-link">메뉴 보기</a>
+            <button class="menu-button">메뉴 보기</button>
         </section>
 
-        <section class="featured-menu">
-            <h2>추천 메뉴</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="images/signature-latte.jpg" alt="시그니처 라떼">
-                    <h3>시그니처 라떼</h3>
-                    <p>부드러운 우유와 진한 에스프레소의 조화</p>
-                    <span class="price">5,800원</span>
-                </div>
-                <div class="menu-item">
-                    <img src="images/cold-brew.jpg" alt="콜드 브루">
-                    <h3>콜드 브루</h3>
-                    <p>12시간 저온 추출한 깊은 풍미</p>
-                    <span class="price">4,800원</span>
-                </div>
-                <div class="menu-item">
-                    <img src="images/mocha-frappuccino.jpg" alt="모카 프라푸치노">
-                    <h3>모카 프라푸치노</h3>
-                    <p>달콤한 초콜릿과 커피의 만남</p>
-                    <span class="price">6,300원</span>
+        <div class="content-wrapper">
+            <div class="featured-menu">
+                <h2>추천 메뉴</h2>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="americano">
+                        <img src="images/americano.jpg" alt="아메리카노">
+                        <div class="menu-info">
+                            <h3>아메리카노</h3>
+                            <p>깊고 진한 에스프레소의 맛</p>
+                            <div class="price">4,500원</div>
+                            <button class="add-to-cart" data-id="americano" data-name="아메리카노" data-price="4500">장바구니 담기</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="cappuccino">
+                        <img src="images/cappuccino.jpg" alt="카푸치노">
+                        <div class="menu-info">
+                            <h3>카푸치노</h3>
+                            <p>부드러운 우유 거품과 에스프레소의 조화</p>
+                            <div class="price">5,000원</div>
+                            <button class="add-to-cart" data-id="cappuccino" data-name="카푸치노" data-price="5000">장바구니 담기</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="latte">
+                        <img src="images/latte.jpg" alt="카페라떼">
+                        <div class="menu-info">
+                            <h3>카페라떼</h3>
+                            <p>부드러운 우유와 에스프레소의 완벽한 밸런스</p>
+                            <div class="price">5,500원</div>
+                            <button class="add-to-cart" data-id="latte" data-name="카페라떼" data-price="5500">장바구니 담기</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="store-info">
-            <div class="info-content">
-                <div class="info-text">
-                    <h2>MochaBlend 스토리</h2>
-                    <p>2023년부터 시작된 MochaBlend는 최고급 원두만을 사용하여 고객님께 최상의 커피를 제공하고 있습니다.</p>
-                    <p>편안한 분위기에서 즐기는 특별한 커피, 지금 경험해보세요.</p>
-                    <ul class="store-features">
-                        <li><i class="fas fa-coffee"></i> 프리미엄 원두 사용</li>
-                        <li><i class="fas fa-wifi"></i> 무료 와이파이</li>
-                        <li><i class="fas fa-parking"></i> 주차 가능</li>
-                        <li><i class="fas fa-clock"></i> 매일 07:00 - 22:00</li>
-                    </ul>
-                </div>
-                <div class="info-image">
-                    <img src="images/store-interior.jpg" alt="매장 전경">
+            <div class="featured-menu">
+                <h2>전체 메뉴</h2>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="vanilla-latte">
+                        <img src="images/vanilla-latte.jpg" alt="바닐라 라떼">
+                        <div class="menu-info">
+                            <h3>바닐라 라떼</h3>
+                            <p>달콤한 바닐라와 부드러운 우유의 만남</p>
+                            <div class="price">5,500원</div>
+                            <button class="add-to-cart" data-id="vanilla-latte" data-name="바닐라 라떼" data-price="5500">장바구니 담기</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="soy-latte">
+                        <img src="images/soy-latte.jpg" alt="소이 라떼">
+                        <div class="menu-info">
+                            <h3>소이 라떼</h3>
+                            <p>고소한 두유와 에스프레소의 특별한 조화</p>
+                            <div class="price">6,000원</div>
+                            <button class="add-to-cart" data-id="soy-latte" data-name="소이 라떼" data-price="6000">장바구니 담기</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="signature-latte">
+                        <img src="images/signature-latte.jpg" alt="시그니처 라떼">
+                        <div class="menu-info">
+                            <h3>시그니처 라떼</h3>
+                            <p>모카블렌드만의 특별한 시그니처 메뉴</p>
+                            <div class="price">6,500원</div>
+                            <button class="add-to-cart" data-id="signature-latte" data-name="시그니처 라떼" data-price="6500">장바구니 담기</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="club-sandwich">
+                        <img src="images/club-sandwich.jpg" alt="클럽 샌드위치">
+                        <div class="menu-info">
+                            <h3>클럽 샌드위치</h3>
+                            <p>신선한 야채와 닭가슴살의 건강한 조화</p>
+                            <div class="price">7,500원</div>
+                            <button class="add-to-cart" data-id="club-sandwich" data-name="클럽 샌드위치" data-price="7500">장바구니 담기</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="hotcake">
+                        <img src="images/hotcake.jpg" alt="핫케이크">
+                        <div class="menu-info">
+                            <h3>핫케이크</h3>
+                            <p>폭신폭신한 핫케이크와 메이플 시럽</p>
+                            <div class="price">8,000원</div>
+                            <button class="add-to-cart" data-id="hotcake" data-name="핫케이크" data-price="8000">장바구니 담기</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <nav class="bottom-nav">
-        <a href="index.html" class="nav-item active">
-            <i class="fas fa-home"></i>
-            <span>홈</span>
-        </a>
-        <a href="menu.html" class="nav-item">
-            <i class="fas fa-coffee"></i>
-            <span>메뉴</span>
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-heart"></i>
-            <span>찜</span>
-        </a>
-        <a href="cart.html" class="nav-item">
-            <div class="cart-icon-container">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-badge">0</span>
-            </div>
-            <span>장바구니</span>
-        </a>
-        <a href="auth.html" class="nav-item">
-            <i class="fas fa-user"></i>
-            <span>내정보</span>
-        </a>
-    </nav>
+            <section class="store-info">
+                <h2>MochaBlend 스토리</h2>
+                <img src="images/store-front.jpg" alt="매장 전경">
+                <p>2023년부터 시작된 MochaBlend는 최고급 원두만을 사용하여 고객님께 최상의 커피를 제공하고 있습니다.</p>
+                <p>편안한 분위기에서 즐기는 특별한 커피, 지금 경험해보세요.</p>
+                <div class="store-features">
+                    <div class="feature">
+                        <span>☕</span>
+                        <p>프리미엄 원두 사용</p>
+                    </div>
+                    <div class="feature">
+                        <span>📱</span>
+                        <p>무료 와이파이</p>
+                    </div>
+                    <div class="feature">
+                        <span>⏰</span>
+                        <p>주차 가능</p>
+                    </div>
+                    <div class="feature">
+                        <span>🕐</span>
+                        <p>매일 07:00 - 22:00</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <span>🏠</span>
+                <span>홈</span>
+            </a>
+            <a href="menu.html" class="nav-item">
+                <span>📋</span>
+                <span>메뉴</span>
+            </a>
+            <a href="cart.html" class="nav-item">
+                <span>🛒</span>
+                <span>장바구니</span>
+                <span class="cart-badge" style="display: none;">0</span>
+            </a>
+            <a href="login.html" class="nav-item">
+                <span>👤</span>
+                <span>로그인</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- 설치 프롬프트 -->
+    <div id="installPrompt">
+        MochaBlend 앱 설치하기
+        <button id="installButton">설치</button>
+    </div>
+
+    <script src="js/index.js"></script>
+    
+    <!-- PWA 서비스 워커 등록 -->
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // 기본 설치 프롬프트 방지
+            e.preventDefault();
+            // 나중에 사용하기 위해 이벤트 저장
+            deferredPrompt = e;
+            // 설치 프롬프트 표시
+            document.getElementById('installPrompt').style.display = 'block';
+        });
+
+        // 설치 버튼 클릭 이벤트
+        document.getElementById('installButton').addEventListener('click', async () => {
+            if (deferredPrompt) {
+                // 설치 프롬프트 표시
+                deferredPrompt.prompt();
+                // 사용자의 응답 대기
+                const { outcome } = await deferredPrompt.userChoice;
+                // deferredPrompt 초기화
+                deferredPrompt = null;
+                // 프롬프트 숨기기
+                document.getElementById('installPrompt').style.display = 'none';
+            }
+        });
+
+        // 서비스 워커 등록
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    const registration = await navigator.serviceWorker.register('./sw.js');
+                    console.log('ServiceWorker registration successful');
+                } catch (err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

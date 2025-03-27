@@ -1,67 +1,34 @@
-// 로그인 버튼 클릭 이벤트
-document.getElementById('loginButton').addEventListener('click', function(e) {
-    e.stopPropagation();
-    document.getElementById('loginForm').classList.toggle('hidden');
-});
-
-// 문서 클릭 시 로그인 폼 닫기
-document.addEventListener('click', function(e) {
-    const loginForm = document.getElementById('loginForm');
+document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.getElementById('loginButton');
-    
-    if (!loginForm.contains(e.target) && !loginButton.contains(e.target)) {
+    const loginForm = document.getElementById('loginForm');
+    const navLoginForm = document.getElementById('navLoginForm');
+
+    // 로그인 버튼 클릭 시 폼 토글
+    loginButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        loginForm.classList.toggle('hidden');
+    });
+
+    // 문서 클릭 시 로그인 폼 닫기
+    document.addEventListener('click', (e) => {
+        if (!loginForm.contains(e.target) && !loginButton.contains(e.target)) {
+            loginForm.classList.add('hidden');
+        }
+    });
+
+    // 로그인 폼 제출
+    navLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('navUsername').value;
+        const password = document.getElementById('navPassword').value;
+
+        // 여기에 로그인 처리 로직 추가
+        console.log('로그인 시도:', { username, password });
+        
+        // 폼 초기화 및 닫기
+        navLoginForm.reset();
         loginForm.classList.add('hidden');
-    }
-});
-
-// 로그인 폼 제출 처리
-document.getElementById('navLoginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const username = document.getElementById('navUsername').value;
-    const password = document.getElementById('navPassword').value;
-
-    // localStorage에서 사용자 데이터 확인
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find(u => u.username === username && u.password === password);
-
-    if (user) {
-        // 로그인 성공
-        localStorage.setItem('loggedInUser', JSON.stringify({
-            username: user.username,
-            name: user.name,
-            email: user.email
-        }));
-
-        // UI 업데이트
-        updateNavigation(user);
-        
-        // 로그인 폼 초기화 및 닫기
-        e.target.reset();
-        document.getElementById('loginForm').classList.add('hidden');
-        
-        // 성공 메시지 표시
-        const statusElement = document.createElement('div');
-        statusElement.className = 'login-status success';
-        statusElement.textContent = '로그인되었습니다!';
-        document.querySelector('.login-container').appendChild(statusElement);
-        
-        // 상태 메시지 3초 후 제거
-        setTimeout(() => {
-            statusElement.remove();
-        }, 3000);
-    } else {
-        // 로그인 실패
-        const statusElement = document.createElement('div');
-        statusElement.className = 'login-status error';
-        statusElement.textContent = '아이디 또는 비밀번호가 올바르지 않습니다.';
-        document.querySelector('.login-container').appendChild(statusElement);
-        
-        // 상태 메시지 3초 후 제거
-        setTimeout(() => {
-            statusElement.remove();
-        }, 3000);
-    }
+    });
 });
 
 // 로그인 상태 확인

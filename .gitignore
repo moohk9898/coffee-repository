@@ -8,11 +8,10 @@ ehthumbs.db
 Thumbs.db
 
 # IDE files
-.vscode/
 .idea/
+.vscode/
 *.swp
 *.swo
 
-# Dependencies
-node_modules/
-package-lock.json 
+# Node modules
+node_modules/ 

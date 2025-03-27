@@ -1,378 +1,62 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    padding: 0;
-}
-
-.navbar {
+  }
+  
+  header nav ul {
+    list-style: none;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     background-color: #f0f0f0;
-    padding: 1rem 2rem;
-}
-
-.logo h1 {
-    margin: 0;
-    color: #333;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.nav-link {
+    padding: 20px 0; /* 여백 추가 */
+  }
+  
+  header nav ul li {
+    margin: 0 20px; /* 여백 추가 */
+  }
+  
+  header nav ul li a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
-}
-
-.login-container {
-    position: relative;
-}
-
-.login-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.login-form {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    min-width: 250px;
-}
-
-.login-form.hidden {
-    display: none;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.login-form button {
-    width: 100%;
-    padding: 0.5rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.login-links {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.login-links a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.hero {
+    font-weight: bold; /* 글꼴 굵게 */
+  }
+  
+  .hero {
     text-align: center;
-    padding: 150px 20px;
-    background-color: #f8f9fa;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #0056b3;
-}
-
-.button {
+    padding: 150px 20px; /* 여백 추가 */
+  }
+  
+  .button {
     background-color: #007bff;
     color: white;
     padding: 15px 30px; /* 여백 추가 */
     text-decoration: none;
     border-radius: 8px; /* 둥근 테두리 */
     font-size: 16px; /* 글꼴 크기 */
-}
-
-.products {
+  }
+  
+  .products {
     padding: 80px 20px; /* 여백 추가 */
-}
-
-.product-list {
+  }
+  
+  .product-list {
     display: flex;
     justify-content: space-around;
-}
-
-.product-list div {
+  }
+  
+  .product-list div {
     text-align: center;
-}
-
-.contact {
+  }
+  
+  .contact {
     background-color: #f0f0f0;
     padding: 80px 20px; /* 여백 추가 */
     text-align: center;
-}
-
-footer {
+  }
+  
+  footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.menu-section {
-    padding: 4rem 2rem;
-    background-color: white;
-}
-
-.menu-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.menu-item {
-    text-align: center;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.menu-item:hover {
-    transform: translateY(-5px);
-}
-
-.menu-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-.menu-item h3 {
-    margin: 0.5rem 0;
-    color: #333;
-}
-
-.menu-item p {
-    color: #007bff;
-    font-weight: bold;
-    margin: 0.5rem 0;
-}
-
-.order-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.order-button:hover {
-    background-color: #0056b3;
-}
-
-.about-section {
-    padding: 4rem 2rem;
-    background-color: #f8f9fa;
-}
-
-.about-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: center;
-}
-
-.about-text p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    color: #666;
-}
-
-.about-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-@media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-image img {
-        height: 300px;
-    }
-}
-
-/* 모바일 반응형 스타일 */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .login-container {
-        width: 100%;
-    }
-
-    .login-form {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        max-width: 320px;
-        z-index: 1000;
-    }
-
-    .hero {
-        padding: 80px 20px;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .about-section {
-        padding: 2rem 1rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .about-image img {
-        height: 250px;
-    }
-
-    footer {
-        position: relative;
-        padding: 1rem 0;
-    }
-
-    /* 메뉴 페이지 모바일 스타일 */
-    .menu-container {
-        padding: 1rem;
-    }
-
-    .menu-categories {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .category-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .menu-item {
-        margin: 0 auto;
-        max-width: 400px;
-    }
-
-    .menu-item-image {
-        height: 200px;
-    }
-
-    .menu-item-content {
-        padding: 1rem;
-    }
-}
-
-/* 작은 모바일 화면을 위한 추가 스타일 */
-@media (max-width: 480px) {
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-
-    .cta-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-
-    .menu-item-title {
-        font-size: 1.1rem;
-    }
-
-    .menu-item-description {
-        font-size: 0.8rem;
-    }
-}
+  }

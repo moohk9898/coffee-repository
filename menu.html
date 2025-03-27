@@ -2,181 +2,151 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MochaBlend - 메뉴</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/menu.css">
 </head>
 <body>
+    <!-- 헤더 섹션 -->
     <header>
-        <div class="logo">MochaBlend</div>
-        <nav class="top-nav">
-            <a href="auth.html" class="nav-icon"><i class="fas fa-user"></i></a>
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-        </nav>
+        <h1>MochaBlend</h1>
+        <p class="subtitle">다양한 메뉴를 만나보세요</p>
     </header>
 
-    <main class="main-content">
-        <div class="menu-header">
-            <h1>메뉴</h1>
-            <div class="category-tabs">
-                <button class="category-tab active" data-category="coffee">커피</button>
-                <button class="category-tab" data-category="non-coffee">논커피</button>
-                <button class="category-tab" data-category="dessert">디저트</button>
-            </div>
-        </div>
-
-        <section class="menu-section" id="coffee">
-            <h2>커피</h2>
+    <div class="container">
+        <!-- 커피 메뉴 섹션 -->
+        <section id="coffee" class="menu-section">
+            <h2>커피 ☕</h2>
             <div class="menu-grid">
                 <div class="menu-item">
                     <img src="images/americano.jpg" alt="아메리카노">
-                    <div class="menu-item-info">
+                    <div class="menu-info">
                         <h3>아메리카노</h3>
-                        <p>진한 에스프레소의 깊은 맛</p>
-                        <span class="price">4,500원</span>
-                        <button class="select-option" data-item="아메리카노" data-price="4500">
-                            <i class="fas fa-plus"></i> 옵션 선택
-                        </button>
+                        <p>깊은 풍미의 에스프레소와 뜨거운 물의 조화</p>
+                        <span class="price">3,800원</span>
+                        <button class="add-to-cart-btn" data-item="아메리카노" data-price="3800">장바구니 담기</button>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <img src="images/cafe-latte.jpg" alt="카페라떼">
-                    <div class="menu-item-info">
+                    <img src="images/latte.jpg" alt="카페라떼">
+                    <div class="menu-info">
                         <h3>카페라떼</h3>
-                        <p>부드러운 우유와 에스프레소의 조화</p>
-                        <span class="price">5,000원</span>
-                        <button class="select-option" data-item="카페라떼" data-price="5000">
-                            <i class="fas fa-plus"></i> 옵션 선택
-                        </button>
+                        <p>부드러운 우유와 에스프레소의 완벽한 밸런스</p>
+                        <span class="price">4,300원</span>
+                        <button class="add-to-cart-btn" data-item="카페라떼" data-price="4300">장바구니 담기</button>
                     </div>
                 </div>
                 <div class="menu-item">
                     <img src="images/cappuccino.jpg" alt="카푸치노">
-                    <div class="menu-item-info">
+                    <div class="menu-info">
                         <h3>카푸치노</h3>
-                        <p>풍성한 우유 거품과 에스프레소</p>
-                        <span class="price">5,000원</span>
-                        <button class="select-option" data-item="카푸치노" data-price="5000">
-                            <i class="fas fa-plus"></i> 옵션 선택
-                        </button>
+                        <p>풍성한 우유 거품과 진한 에스프레소의 만남</p>
+                        <span class="price">4,300원</span>
+                        <button class="add-to-cart-btn" data-item="카푸치노" data-price="4300">장바구니 담기</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="menu-section" id="non-coffee" style="display: none;">
-            <h2>논커피</h2>
+        <!-- 음료 메뉴 섹션 -->
+        <section id="beverage" class="menu-section">
+            <h2>음료 🥤</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="images/green-tea-latte.jpg" alt="녹차라떼">
-                    <div class="menu-item-info">
-                        <h3>녹차라떼</h3>
-                        <p>진한 녹차와 부드러운 우유의 만남</p>
+                    <img src="images/smoothie.jpg" alt="과일 스무디">
+                    <div class="menu-info">
+                        <h3>과일 스무디</h3>
+                        <p>신선한 제철 과일로 만든 시원한 스무디</p>
                         <span class="price">5,500원</span>
-                        <button class="select-option" data-item="녹차라떼" data-price="5500">
-                            <i class="fas fa-plus"></i> 옵션 선택
-                        </button>
+                        <button class="add-to-cart-btn" data-item="과일 스무디" data-price="5500">장바구니 담기</button>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <img src="images/chocolate.jpg" alt="초콜릿">
-                    <div class="menu-item-info">
-                        <h3>초콜릿</h3>
-                        <p>달콤한 초콜릿의 깊은 풍미</p>
-                        <span class="price">5,500원</span>
-                        <button class="select-option" data-item="초콜릿" data-price="5500">
-                            <i class="fas fa-plus"></i> 옵션 선택
-                        </button>
+                    <img src="images/tea.jpg" alt="허브티">
+                    <div class="menu-info">
+                        <h3>허브티</h3>
+                        <p>향긋한 허브의 향과 맛을 즐기는 티</p>
+                        <span class="price">4,500원</span>
+                        <button class="add-to-cart-btn" data-item="허브티" data-price="4500">장바구니 담기</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="menu-section" id="dessert" style="display: none;">
-            <h2>디저트</h2>
+        <!-- 디저트 메뉴 섹션 -->
+        <section id="dessert" class="menu-section">
+            <h2>디저트 🍰</h2>
             <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="images/cake.jpg" alt="티라미수">
+                    <div class="menu-info">
+                        <h3>티라미수</h3>
+                        <p>부드러운 마스카포네 치즈와 커피의 조화</p>
+                        <span class="price">6,500원</span>
+                        <button class="add-to-cart-btn" data-item="티라미수" data-price="6500">장바구니 담기</button>
+                    </div>
+                </div>
                 <div class="menu-item">
                     <img src="images/croissant.jpg" alt="크루아상">
-                    <div class="menu-item-info">
+                    <div class="menu-info">
                         <h3>크루아상</h3>
-                        <p>바삭한 겹겹의 풍미</p>
+                        <p>바삭하고 부드러운 수제 크루아상</p>
                         <span class="price">3,800원</span>
-                        <button class="select-option" data-item="크루아상" data-price="3800">
-                            <i class="fas fa-plus"></i> 옵션 선택
-                        </button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="images/chocolate-cake.jpg" alt="초코케이크">
-                    <div class="menu-item-info">
-                        <h3>초코케이크</h3>
-                        <p>진한 초콜릿의 달콤함</p>
-                        <span class="price">6,500원</span>
-                        <button class="select-option" data-item="초코케이크" data-price="6500">
-                            <i class="fas fa-plus"></i> 옵션 선택
-                        </button>
+                        <button class="add-to-cart-btn" data-item="크루아상" data-price="3800">장바구니 담기</button>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <nav class="bottom-nav">
-        <a href="index.html" class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>홈</span>
-        </a>
-        <a href="menu.html" class="nav-item active">
-            <i class="fas fa-mug-hot"></i>
-            <span>메뉴</span>
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-heart"></i>
-            <span>찜</span>
-        </a>
-        <a href="cart.html" class="nav-item">
-            <div class="cart-icon-container">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-badge">0</span>
+        <!-- 푸드 메뉴 섹션 -->
+        <section id="food" class="menu-section">
+            <h2>푸드 🥪</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="images/sandwich.jpg" alt="클럽 샌드위치">
+                    <div class="menu-info">
+                        <h3>클럽 샌드위치</h3>
+                        <p>신선한 야채와 닭가슴살이 들어간 클래식 샌드위치</p>
+                        <span class="price">7,500원</span>
+                        <button class="add-to-cart-btn" data-item="클럽 샌드위치" data-price="7500">장바구니 담기</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/salad.jpg" alt="치킨 샐러드">
+                    <div class="menu-info">
+                        <h3>치킨 샐러드</h3>
+                        <p>그릴에 구운 닭가슴살과 신선한 채소의 조화</p>
+                        <span class="price">8,500원</span>
+                        <button class="add-to-cart-btn" data-item="치킨 샐러드" data-price="8500">장바구니 담기</button>
+                    </div>
+                </div>
             </div>
-            <span>장바구니</span>
-        </a>
-        <a href="auth.html" class="nav-item">
-            <i class="fas fa-user"></i>
-            <span>내정보</span>
-        </a>
-    </nav>
+        </section>
+    </div>
 
     <!-- 옵션 선택 모달 -->
     <div class="modal" id="optionModal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">옵션 선택</h3>
-                <button class="close-modal"><i class="fas fa-times"></i></button>
+                <button class="close-modal">✕</button>
             </div>
             <div class="modal-body">
                 <h4 class="selected-item-name"></h4>
-                <div class="option-group">
+                <div class="option-group temperature-group">
                     <label class="option-label">온도</label>
                     <div class="temperature-options">
-                        <button class="temp-option" data-temp="HOT">
-                            <i class="fas fa-mug-hot"></i> HOT
-                        </button>
-                        <button class="temp-option" data-temp="ICE">
-                            <i class="fas fa-cube"></i> ICE
-                        </button>
+                        <button class="temp-option" data-temp="HOT">HOT</button>
+                        <button class="temp-option" data-temp="ICE">ICE</button>
                     </div>
                 </div>
-                <div class="quantity-group">
+                <div class="option-group quantity-group">
                     <label class="option-label">수량</label>
                     <div class="quantity-control">
-                        <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                        <button class="quantity-btn minus">-</button>
                         <span class="quantity">1</span>
-                        <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                        <button class="quantity-btn plus">+</button>
                     </div>
                 </div>
                 <div class="total-price">
@@ -186,10 +156,31 @@
             </div>
             <div class="modal-footer">
                 <button class="cancel-btn">취소</button>
-                <button class="add-to-cart-btn">장바구니 담기</button>
+                <button class="confirm-cart-btn">장바구니 담기</button>
             </div>
         </div>
     </div>
+
+    <!-- 하단 네비게이션 -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-icon">🏠</span>
+            <span>홈</span>
+        </a>
+        <a href="menu.html" class="nav-item active">
+            <span class="nav-icon">📋</span>
+            <span>메뉴</span>
+        </a>
+        <a href="cart.html" class="nav-item">
+            <span class="nav-icon">🛒</span>
+            <span>장바구니</span>
+            <span class="cart-badge">0</span>
+        </a>
+        <a href="mypage.html" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span>내 정보</span>
+        </a>
+    </nav>
 
     <script src="js/menu.js"></script>
 </body>
