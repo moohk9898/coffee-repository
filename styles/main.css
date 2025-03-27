@@ -5,9 +5,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Sans KR', Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
 /* 네비게이션 바 스타일 */
@@ -17,15 +18,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
 }
 
-.logo img {
-    height: 40px;
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4A3428;
+}
+
+.logo span {
+    color: #8B5E3C;
 }
 
 .nav-icons {
@@ -35,7 +42,7 @@ body {
 }
 
 .nav-icon {
-    color: #333;
+    color: #4A3428;
     text-decoration: none;
 }
 
@@ -45,8 +52,8 @@ body {
 
 /* 메인 컨텐츠 스타일 */
 main {
-    padding-top: 60px;
-    padding-bottom: 70px;
+    padding-top: 70px;
+    padding-bottom: 80px;
 }
 
 .featured-drinks {
@@ -55,15 +62,18 @@ main {
 
 .drink-card {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 1.5rem;
     margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .drink-card h2 {
     font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #1e3932;
+    margin-bottom: 2rem;
+    color: #4A3428;
+    text-align: center;
+    font-weight: 700;
 }
 
 .drink-item {
@@ -71,22 +81,37 @@ main {
     text-align: center;
 }
 
-.drink-item img {
+.drink-image {
     width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
+    height: 250px;
+    border-radius: 15px;
     margin-bottom: 1rem;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.drink-image.cream-latte {
+    background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23F3E5DC"/><circle cx="200" cy="200" r="150" fill="%23E6D5CC"/><circle cx="200" cy="200" r="100" fill="%23D4C4BA"/></svg>');
+}
+
+.drink-image.matcha-latte {
+    background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23E8F3E5"/><circle cx="200" cy="200" r="150" fill="%23D5E6CC"/><circle cx="200" cy="200" r="100" fill="%23C4D4BA"/></svg>');
 }
 
 .drink-item h3 {
-    font-size: 1.2rem;
-    color: #1e3932;
+    font-size: 1.3rem;
+    color: #4A3428;
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .drink-item p {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 /* 하단 네비게이션 바 */
@@ -98,7 +123,7 @@ main {
     display: flex;
     justify-content: space-around;
     padding: 0.8rem 0;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
 .bottom-nav-item {
@@ -107,12 +132,17 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .bottom-nav-item .material-icons {
     font-size: 24px;
     margin-bottom: 4px;
+    color: #4A3428;
+}
+
+.bottom-nav-item span:not(.material-icons) {
+    color: #666;
 }
 
 /* 반응형 스타일 */
@@ -121,8 +151,8 @@ main {
         padding: 0.8rem;
     }
 
-    .logo img {
-        height: 30px;
+    .logo h1 {
+        font-size: 1.3rem;
     }
 
     .nav-icons {
@@ -131,5 +161,9 @@ main {
 
     .material-icons {
         font-size: 22px;
+    }
+
+    .drink-image {
+        height: 200px;
     }
 }
