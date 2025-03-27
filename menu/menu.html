@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 - Coffee Shop</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .menu-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .menu-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .menu-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-button.active,
+        .category-button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .menu-item-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .menu-item-price {
+            color: #007bff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .order-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Coffee Shop</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">홈</a>
+                <a href="./menu.html" class="nav-link">메뉴</a>
+                <a href="../index.html#about" class="nav-link">소개</a>
+                <button id="cartButton" class="nav-link" onclick="goToPayment()">장바구니 (0)</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="menu-container">
+            <div class="menu-header">
+                <h2>메뉴</h2>
+                <p>신선한 원두로 매일 아침 로스팅한 커피를 즐겨보세요</p>
+            </div>
+
+            <div class="menu-categories">
+                <button class="category-button active">전체</button>
+                <button class="category-button">커피</button>
+                <button class="category-button">논커피</button>
+                <button class="category-button">디저트</button>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="../images/americano.jpg" alt="아메리카노" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">아메리카노</h3>
+                        <p class="menu-item-description">깊고 진한 에스프레소의 맛을 물과 함께 부드럽게</p>
+                        <p class="menu-item-price">4,500원</p>
+                        <button class="order-button" onclick="addToCart('아메리카노', 4500)">주문하기</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="../images/latte.jpg" alt="카페라떼" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">카페라떼</h3>
+                        <p class="menu-item-description">부드러운 우유와 에스프레소의 조화로운 만남</p>
+                        <p class="menu-item-price">5,000원</p>
+                        <button class="order-button" onclick="addToCart('카페라떼', 5000)">주문하기</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="../images/espresso.jpg" alt="에스프레소" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">에스프레소</h3>
+                        <p class="menu-item-description">진한 커피의 맛을 온전히 느낄 수 있는 한 잔</p>
+                        <p class="menu-item-price">3,500원</p>
+                        <button class="order-button" onclick="addToCart('에스프레소', 3500)">주문하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Coffee Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartDisplay();
+            alert(`${name}가 장바구니에 추가되었습니다.`);
+        }
+
+        function updateCartDisplay() {
+            const cartCount = cart.length;
+            const cartButton = document.getElementById('cartButton');
+            if (cartButton) {
+                cartButton.textContent = `장바구니 (${cartCount})`;
+            }
+        }
+
+        function goToPayment() {
+            if (cart.length === 0) {
+                alert('장바구니가 비어있습니다.');
+                return;
+            }
+            
+            const cartData = encodeURIComponent(JSON.stringify(cart));
+            window.location.href = '../payment/payment.html?cart=' + cartData;
+        }
+
+        // 카테고리 버튼 기능
+        document.querySelectorAll('.category-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // 모든 버튼에서 active 클래스 제거
+                document.querySelectorAll('.category-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // 클릭된 버튼에 active 클래스 추가
+                this.classList.add('active');
+                // 여기에 카테고리 필터링 로직 추가 가능
+            });
+        });
+    </script>
+</body>
+</html> 

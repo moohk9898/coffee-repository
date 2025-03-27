@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Coffee Shop</h1>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">홈</a>
+                <a href="./menu/menu.html" class="nav-link">메뉴</a>
+                <a href="#about" class="nav-link">소개</a>
+                <div class="login-container">
+                    <button id="loginButton" class="nav-link login-btn">로그인</button>
+                    <div id="loginForm" class="login-form hidden">
+                        <form id="navLoginForm">
+                            <div class="form-group">
+                                <input type="text" id="navUsername" name="username" placeholder="아이디" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="navPassword" name="password" placeholder="비밀번호" required>
+                            </div>
+                            <button type="submit">로그인</button>
+                            <div class="login-links">
+                                <a href="./signup/signup.html">회원가입</a>
+                                <a href="#" class="forgot-password">비밀번호 찾기</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <button id="cartButton" class="nav-link" onclick="goToPayment()">장바구니 (0)</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>신선한 커피와 함께하는 특별한 순간</h2>
+            <p>최고급 원두로 내린 커피와 함께 특별한 시간을 보내세요</p>
+            <a href="./menu/menu.html" class="cta-button">메뉴 보기</a>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>우리 카페 소개</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>최고급 원두를 직접 로스팅하여 제공하는 커피 전문점입니다.</p>
+                    <p>매일 아침 신선하게 구워내는 베이커리와 함께 즐기실 수 있습니다.</p>
+                </div>
+                <div class="about-image">
+                    <img src="./images/cafe-interior.jpg" alt="카페 내부">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Coffee Shop. All rights reserved.</p>
+    </footer>
+
+    <script src="./scripts/main.js"></script>
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartCount = cart.length;
+            const cartButton = document.getElementById('cartButton');
+            if (cartButton) {
+                cartButton.textContent = `장바구니 (${cartCount})`;
+            }
+        }
+
+        function goToPayment() {
+            if (cart.length === 0) {
+                alert('장바구니가 비어있습니다.');
+                return;
+            }
+            
+            // 장바구니 데이터를 URL 파라미터로 전달
+            const cartData = encodeURIComponent(JSON.stringify(cart));
+            window.location.href = `./payment/payment.html?cart=${cartData}`;
+        }
+    </script>
+</body>
+</html>
