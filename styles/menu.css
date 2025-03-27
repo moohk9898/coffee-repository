@@ -424,4 +424,45 @@
         font-size: 14px;
         padding: 10px;
     }
+}
+
+/* 장바구니 배지 스타일 */
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 25%;
+    background-color: #E31836;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    padding: 10px;
+    flex: 1;
+}
+
+.nav-item.active {
+    color: #4A3223;
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-item span {
+    font-size: 12px;
 } 

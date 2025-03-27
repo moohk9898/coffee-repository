@@ -132,6 +132,23 @@ function updateTotalPrice() {
 closeBtn.addEventListener('click', closeModal);
 cancelBtn.addEventListener('click', closeModal);
 
+// 장바구니 아이콘 업데이트
+function updateCartIcon() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartBadge = document.querySelector('.cart-badge');
+    
+    if (cartBadge) {
+        cartBadge.textContent = totalItems;
+        cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
+    }
+}
+
+// 페이지 로드 시 장바구니 아이콘 업데이트
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartIcon();
+});
+
 // 장바구니에 담기
 addToCartBtn.addEventListener('click', () => {
     if (!currentTemp) {
@@ -151,6 +168,9 @@ addToCartBtn.addEventListener('click', () => {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     cart.push(cartItem);
     localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // 장바구니 아이콘 업데이트
+    updateCartIcon();
     
     // 성공 메시지 표시
     alert('장바구니에 추가되었습니다.');
@@ -175,12 +195,4 @@ function addToCart(item) {
     
     // 장바구니 아이콘 업데이트 (옵션)
     updateCartIcon();
-}
-
-// 장바구니 아이콘 업데이트
-function updateCartIcon() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    
-    // 장바구니 아이콘에 수량 표시 (향후 구현)
 } 
