@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필 수정 - MochaBlend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/edit-profile.css">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1>프로필 수정</h1>
+            <button class="back-button" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+        </header>
+        <main>
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <img src="images/profile-default.png" alt="프로필 사진" id="profileImage">
+                    <div class="profile-upload">
+                        <label for="profileUpload" class="upload-button">
+                            <i class="fas fa-camera"></i>
+                            사진 변경
+                        </label>
+                        <input type="file" id="profileUpload" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">전화번호</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">주소</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="save-button">저장하기</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- 하단 네비게이션 -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>홈</span>
+        </a>
+        <a href="menu.html" class="nav-item">
+            <i class="fas fa-coffee"></i>
+            <span>메뉴</span>
+        </a>
+        <a href="cart.html" class="nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <div class="nav-text">
+                장바구니
+                <span class="cart-badge">0</span>
+            </div>
+        </a>
+        <a href="mypage.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>내 정보</span>
+        </a>
+    </nav>
+
+    <script src="js/edit-profile.js"></script>
+</body>
+</html> 
